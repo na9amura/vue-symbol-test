@@ -1,17 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <my-slot>
+      <my-component :symbol="mySymbol"></my-component>
+    </my-slot>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MySlot from './components/MySlot.vue'
+import MyComponent from './components/MyComponent.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    MySlot,
+    MyComponent,
+  },
+  data () {
+    return {
+      mySymbol: Symbol('MINE')
+    }
   }
 }
 </script>
